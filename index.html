@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Restricted</title>
+    <title>Encrypted Access</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #000000, #1a1a1a);
+            background: radial-gradient(circle at center, #000000, #1a1a1a, #0a0a0a);
             color: #00ffcc;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
@@ -17,71 +17,93 @@
             height: 100vh;
             overflow: hidden;
         }
-        #main-content {
-            display: none;
+        .container {
             text-align: center;
+            max-width: 800px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             border: 1px solid #00ffcc;
-            border-radius: 8px;
-            box-shadow: 0 0 15px #00ffcc;
+            border-radius: 12px;
+            box-shadow: 0 0 25px #00ffcc, inset 0 0 10px #003322;
         }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        p {
+        .clue {
             font-size: 1.2em;
-            line-height: 1.5;
+            color: #ff9900;
+            margin-bottom: 20px;
         }
         #password-prompt {
-            color: #00ffcc;
-            font-size: 1.5em;
-            text-align: center;
+            margin-top: 20px;
         }
         input {
             background: #000;
             border: 1px solid #00ffcc;
             color: #00ffcc;
-            padding: 5px 10px;
+            padding: 10px;
+            width: 80%;
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.2em;
+            border-radius: 5px;
         }
         input:focus {
             outline: none;
-            box-shadow: 0 0 5px #00ffcc;
+            box-shadow: 0 0 8px #00ffcc;
         }
         button {
-            margin-top: 10px;
+            margin-top: 15px;
             background: #000;
             border: 1px solid #00ffcc;
             color: #00ffcc;
-            padding: 5px 10px;
+            padding: 10px 20px;
             cursor: pointer;
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.2em;
+            border-radius: 5px;
         }
         button:hover {
             background: #00ffcc;
             color: #000;
         }
+        #main-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #00ffcc;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 8px;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
-    <div id="password-prompt">
-        <p>Enter Password:</p>
-        <input type="password" id="password" placeholder="********">
-        <button onclick="checkPassword()">Submit</button>
-    </div>
+    <div class="container">
+        <p class="clue">Clue:your clue awaits among the mail of the atom, read it carefully to proceed.</p>
 
-    <div id="main-content">
-        <h1>Encrypted Message</h1>
-        <p id="body-text">Your cryptic text will go here. Replace this with your content.</p>
+        <div id="password-prompt">
+            <p>Enter Password:</p>
+            <input type="password" id="password" placeholder="********">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+
+        <div id="main-content">
+            <h1>Encrypted Message</h1>
+            <p id="body-text">
+                qnuux vh oarnwm, r jv qjyyh hxd vjmn rc cqrb oja, cqjwt hxd oxa cadbcrwp vn, r fjb sxtrwp jkxdc bnwmrwp rc 20 vrwdcnb jpx, cqrb rb bnarxdb. fqnw hxd vjtn rc cqrb oja, bjh yqajbn, laxxtnm knjenab ljw'c lxxt, jwm cqjc fruu bqxf vn hxd ljw yaxlnnm odacqna.
+                 Hello, the key for this cipher lies in the man who loves Baileys. You told me that in a book of might it is revealed that he hunts a certain group. In its singular form, e.g., cat rather than cats, how many letters is that word? That is the key
+            </p>
+        </div>
     </div>
 
     <script>
         function checkPassword() {
-            const password = document.getElementById('password').value;
+            const password = document.getElementById('password').value.toLowerCase();
             if (password === "steve") {
                 document.getElementById('password-prompt').style.display = "none";
                 document.getElementById('main-content').style.display = "block";
